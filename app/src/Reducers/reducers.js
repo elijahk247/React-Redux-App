@@ -15,7 +15,7 @@ export const reducers = (state = intialState, action) => {
         }
     case 'FETCH_WEATHER_SUCCESS':
       return {
-        ... state,
+        ...state,
         fetchingData: false,
         temperatureData: action.payload.consolidated_weather,
         time: action.payload.time,

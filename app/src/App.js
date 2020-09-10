@@ -1,7 +1,6 @@
 import React, { useEffect } from 'react';
 import logo from './logo.svg';
 import './App.css';
-
 import { connect } from 'react-redux';
 
 import { fetchWeather } from './Action/actions';
@@ -37,7 +36,7 @@ function App(props) {
   );
 }
 
-const mapStateToProps = state => {
+const mapStateToProps = (state) => {
   return{
     temperatureData: state.reducers.temperatureData,
     fetchingData: state.reducers.fetchingData,
@@ -46,4 +45,4 @@ const mapStateToProps = state => {
   }
 }
 
-export default App;
+export default connect(mapStateToProps, {fetchWeather})(App);
