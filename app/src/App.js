@@ -6,7 +6,8 @@ import { connect } from 'react-redux';
 import { fetchWeather } from './Action/actions';
 import Weather from './Components/Weather';
 
-function App(props) {
+// function App() {
+function App(fethWeather, fetchingData, error) {
   useEffect(() => {
     fetchWeather()
   }, [])
@@ -30,7 +31,12 @@ function App(props) {
 
       <body>
         <h1>The Weather Data</h1>
-        <Weather weatherData={props.temperatureData} time={props.time}/>
+        {
+          !fetchingData ? <Weather /> : <div>fetching data...</div>
+        }
+        {
+          error !== '' ? <div> {error} </div> : null
+        }
       </body>
     </div>
   );
@@ -38,11 +44,10 @@ function App(props) {
 
 const mapStateToProps = (state) => {
   return{
-    temperatureData: state.reducers.temperatureData,
-    fetchingData: state.reducers.fetchingData,
-    error: state.reducers.error,
-    time: state.reducers.time,
+    fetchingData: state.fetchingData,
+    error: state.error,
   }
 }
 
 export default connect(mapStateToProps, {fetchWeather})(App);
+// export default App;

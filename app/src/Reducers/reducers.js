@@ -1,3 +1,5 @@
+import { FETCH_WEATHER, FETCH_WEATHER_SUCCESS, FETCH_WEATHER_ERROR } from '../Action/actions'
+
 const intialState = {
   temperatureData: [],
   fetchingData: false,
@@ -8,19 +10,19 @@ const intialState = {
 
 export const reducers = (state = intialState, action) => {
   switch(action.type) {
-    case 'FETCH_WEATHER_START':
+      case FETCH_WEATHER:
         return {
           ...state,
           fetchingData: true
         }
-    case 'FETCH_WEATHER_SUCCESS':
+    case FETCH_WEATHER_SUCCESS:
       return {
         ...state,
-        fetchingData: false,
         temperatureData: action.payload.consolidated_weather,
+        fetchingData: false,
         time: action.payload.time,
       }
-    case 'FETCH_WEATHER_ERROR':
+    case FETCH_WEATHER_ERROR:
       return{
         ...state, 
         fetchingData: false,
