@@ -5,7 +5,7 @@ const Weather = (props) => {
   return(
     <div className='weather-container'>
       {
-        props.weatherData.map(data => {
+        props.temperatureData.map(data => {
           return(
             <div>
               <h3>Data</h3>

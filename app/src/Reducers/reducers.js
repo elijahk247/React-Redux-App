@@ -2,7 +2,7 @@ import { FETCH_WEATHER, FETCH_WEATHER_SUCCESS, FETCH_WEATHER_ERROR } from '../Ac
 
 const intialState = {
   temperatureData: [],
-  fetchingData: false,
+  fetchingData: true,
   error: '',
   time: '',
 }
@@ -18,7 +18,7 @@ export const reducers = (state = intialState, action) => {
     case FETCH_WEATHER_SUCCESS:
       return {
         ...state,
-        temperatureData: action.payload.consolidated_weather,
+        temperatureData: action.payload['consolidated_weather'],
         fetchingData: false,
         time: action.payload.time,
       }

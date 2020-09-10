@@ -7,10 +7,10 @@ import { fetchWeather } from './Action/actions';
 import Weather from './Components/Weather';
 
 // function App() {
-function App(fethWeather, fetchingData, error) {
+function App(fetchWeather, fetchingData, error) {
   useEffect(() => {
     fetchWeather()
-  }, [])
+  }, [fetchWeather])
 
   return (
     <div className="App">
