@@ -1,8 +1,15 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import logo from './logo.svg';
 import './App.css';
 
+import { connect } from 'react-redux';
+
+import { fetchWeather } from './Action/actions';
+
 function App() {
+
+  fetchWeather()
+
   return (
     <div className="App">
       <header className="App-header">
