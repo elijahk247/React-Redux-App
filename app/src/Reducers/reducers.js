@@ -1,14 +1,13 @@
 import { FETCH_WEATHER, FETCH_WEATHER_SUCCESS, FETCH_WEATHER_ERROR } from '../Action/actions'
 
-const intialState = {
+const initialState = {
   temperatureData: [],
   fetchingData: true,
   error: '',
   time: '',
 }
 
-
-export const reducers = (state = intialState, action) => {
+export const reducers = (state = initialState, action) => {
   switch(action.type) {
       case FETCH_WEATHER:
         return {

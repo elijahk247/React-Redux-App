@@ -10,7 +10,7 @@ const Weather = (props) => {
             <div>
               <h3>Data</h3>
               <p>Humidity: {data.humidity}</p>
-              <p>The temperature: {data.humidity}</p>
+              <p>The temperature: {data['the_temp']}</p>
             </div>
           )
         })
