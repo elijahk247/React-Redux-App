@@ -5,10 +5,12 @@ import './App.css';
 import { connect } from 'react-redux';
 
 import { fetchWeather } from './Action/actions';
+import Weather from './Components/Weather';
 
-function App() {
-
-  fetchWeather()
+function App(props) {
+  useEffect(() => {
+    fetchWeather()
+  }, [])
 
   return (
     <div className="App">
@@ -26,8 +28,22 @@ function App() {
           Learn React
         </a>
       </header>
+
+      <body>
+        <h1>The Weather Data</h1>
+        <Weather weatherData={props.temperatureData} time={props.time}/>
+      </body>
     </div>
   );
+}
+
+const mapStateToProps = state => {
+  return{
+    temperatureData: state.reducers.temperatureData,
+    fetchingData: state.reducers.fetchingData,
+    error: state.reducers.error,
+    time: state.reducers.time,
+  }
 }
 
 export default App;
